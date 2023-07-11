@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Products{% endblock %}
+
+{% block css_sheets %}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <h3>Create New Product</h3>
+        <form class="form" id="product-creation"
+                method="post" action="{% url 'new_product' %}">
+            {% csrf_token %}
+            {{ product_form | crispy }}
+            <button type="submit" class="save btn btn-primary">Create</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block js_scripts %}
+  <script type="text/javascript" charset="utf-8" async defer>
+    function populateProducts() {
+    }
+
+    $('#msg-area').hide();
+
+  </script>
+{% endblock %}
